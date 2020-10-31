@@ -1,0 +1,26 @@
+{% extends 'layouts/admin.html.twig' %}
+
+{% block content %}
+    <h2>Zarządzanie książkami</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Opis</th>
+                <th class="text-center">Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.description }}</td>
+                    <td class="text-center">
+                        <a href="{{ path('admin_book_edit', {id: book.id }) }}" class="btn btn-secondary btn-sm">Edytuj</a>
+                        <a href="" class="btn btn-danger btn-sm">Usuń</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
